@@ -4,7 +4,7 @@ import re
 origin = pd.read_csv("Res/wos.csv")
 
 
-def get_XJU_address(address):
+def analyse_address(address):
     address += ";"
     records = re.findall("\[.+?\].+?;", address)
 
@@ -20,11 +20,9 @@ def get_XJU_address(address):
     return False if len(res) == 0 else res
 
 
-# address = '[Hushur, Anwar; Manghnani, Murli H.] Univ Hawaii, Hawaii Inst Geophys & Planetol, Honolulu, HI 96822 USA; [Hushur, Anwar] Xinjiang Univ, Xinjiang Key Lab Solid State Phys & Devices, Urumqi, Peoples R China; [Hushur, Anwar] Xinjiang Univ, Sch Phys & Technol, Urumqi, Peoples R China; [Williams, Quentin] Univ Calif Santa Cruz, Dept Earth & Planetary Sci, Santa Cruz, CA 95064 USA'
-
 final_res = pd.DataFrame(columns=["University", "Department", "Cite"])
 for i in range(0, origin.shape[0]):
-    res = get_XJU_address(origin.loc[origin.index.values[i], "Addresses"])
+    res = analyse_address(origin.loc[origin.index.values[i], "Addresses"])
     if res:
         for j in res:
             tmp = j
