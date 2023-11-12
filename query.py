@@ -48,4 +48,4 @@ get_statics("机械工程学院", "Mech", "Engn", df)
 get_statics("先进功能材料自治区重点实验室", "Funct", "Mat", df)
 
 
-df.to_csv("Res\Statistcs.csv")
+df.to_csv("Res\Statistcs.csv", encoding="gbk")
