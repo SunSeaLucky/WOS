@@ -1,12 +1,18 @@
-# 规范统一
+# WOS
+## Introduction
+We are serving for XJU (Xingjiang University) 's and provide its paper statistics.
+## Field Name
+University Name: `University`
 
-大学名称：University
-所在系名：Department
-论文总数：Paper
-引用数量：Cite
-ADDRESS字段原数据索引：AI
+The department of author: `Department`
 
-# 细节处理
+Sum of papers: `Paper`
 
-- 对于大学名称没有填`Xinjiang Univ`的暂时不予统计
-- 对于一篇论文对应多个系的，目前只能处理第一个系
+Numbers of citing: `Cite`
+
+Index of field `ADDRESS`: `AI`
+
+## Detail processing
+
+- Do **NOT** include `Xinjiang Univ`.j
+- Only process the first department when there are lots of departments in the `ADDRESS`.
